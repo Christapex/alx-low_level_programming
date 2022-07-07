@@ -1,29 +1,42 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * main - block to execute
- * Desciption: computes and prints
- * Return: 0
+ * print_times_table - prints time table
+ * @n : use in times_table
+ * Return:void
  */
-int main(void)
+void print_times_table(int n)
 {
-	int i = 0;
-	long int a = 0, b = 1, next;
+	int a = 0, rep, b;
 
-	while (i < 50)
+	if (n < 0 || n > 15)
+		return;
+	while (a <= n)
 	{
-		next = a + b;
-		a = b;
-		b = next;
-		printf("%lu", next);
-
-		if (i < 49)
+		for (b = 0; b <= n; b++)
 		{
-			printf(", ");
+			rep = a * b;
+			if (b == 0)
+				_putchar('0' + rep);
+			else if (rep < 10)
+			{
+				_putchar(' ');
+				_putchar(' ')
+				_putchar('0' + rep);
+			}
+			else if (rep < 100)
+			{
+				_putchar (' ');
+				_putchar('0' + rep / 10);
+				_putchar('0' + rep % 10);
+			}
+			if (b < n)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
 		}
-		i++;
+		_putchar('\n');
+		a++;
 	}
-	putchar('\n');
-
-	return (0);
 }
